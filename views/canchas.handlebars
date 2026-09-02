@@ -1,0 +1,69 @@
+<script>window.TODAY = "{{today}}";</script>
+<section>
+  <p class="hint">
+    Esta vista escucha eventos de Socket.io: creá una cancha o hacé una reserva
+    desde la API (o desde otra pestaña) y todo se actualiza solo, sin recargar.
+  </p>
+
+  <h2>Canchas</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Deporte</th>
+        <th>Ubicación</th>
+        <th>Precio/hora</th>
+        <th>Horario</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody id="canchas-tbody">
+      {{#each canchas}}
+        <tr id="cancha-{{this._id}}">
+          <td>{{this.name}}</td>
+          <td>{{this.sportType}}</td>
+          <td>{{this.location}}</td>
+          <td>${{this.pricePerHour}}</td>
+          <td>{{this.openingHour}}:00 - {{this.closingHour}}:00</td>
+          <td>
+            {{#if this.isActive}}
+              <span class="badge badge--online">activa</span>
+            {{else}}
+              <span class="badge badge--offline">inactiva</span>
+            {{/if}}
+          </td>
+        </tr>
+      {{else}}
+        <tr><td colspan="6">No hay canchas cargadas todavía.</td></tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h2>Reservas de hoy ({{today}})</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Hora</th>
+        <th>Canchas</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody id="reservas-tbody">
+      {{#each reservasHoy}}
+        <tr id="reserva-{{this._id}}">
+          <td>{{this.clientName}}</td>
+          <td>{{this.startTime}}</td>
+          <td>
+            {{#each this.canchas}}
+              {{this.cancha.name}} ({{this.quantity}}h){{#unless @last}}, {{/unless}}
+            {{/each}}
+          </td>
+          <td><span class="badge badge--pending">{{this.status}}</span></td>
+        </tr>
+      {{else}}
+        <tr><td colspan="4">Todavía no hay reservas para hoy.</td></tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

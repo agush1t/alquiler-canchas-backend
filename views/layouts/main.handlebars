@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}} - Alquiler de Canchas</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Alquiler de Canchas</h1>
+    <span id="connection-status" class="badge badge--offline">conectando...</span>
+  </header>
+  <main class="container">
+    {{{body}}}
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/canchas.js"></script>
+</body>
+</html>
