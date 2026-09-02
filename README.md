@@ -60,11 +60,7 @@ cp .env.example .env
 npm run dev
 ```
 
-<<<<<<< HEAD
 Servidor en el puerto que definas en `PORT` dentro de tu `.env` (por defecto 8080). Vista en tiempo real en `/canchas`.
-=======
-Servidor en `http://localhost:4321`. Vista en tiempo real en `/canchas`.
->>>>>>> 7df13f249cc98c4ee3dbb6d549f3794970aa5fa7
 
 ## Variables de entorno
 
