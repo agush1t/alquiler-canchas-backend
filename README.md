@@ -60,7 +60,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Servidor en `http://localhost:8080`. Vista en tiempo real en `/canchas`.
+Servidor en `http://localhost:4321`. Vista en tiempo real en `/canchas`.
 
 ## Variables de entorno
 
